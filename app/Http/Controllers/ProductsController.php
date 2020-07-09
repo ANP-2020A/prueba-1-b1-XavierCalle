@@ -27,7 +27,9 @@ class ProductsController extends Controller
     }
     public function delete(Products $product)
     {
-        $product->delete();
+        $product->status = 'deleted';
+
+        $product->save();
         return response()->json(null, 204);
     }
 }
